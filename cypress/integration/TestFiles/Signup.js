@@ -101,4 +101,84 @@ class Signup
         return cy.get('b')
     }
 }
-export default Signup;
+class Login
+{
+    getSignupLogin()
+    {
+        return cy.get('.shop-menu > .nav > :nth-child(4) > a')
+    }
+    getLoginText()
+    {
+        return cy.get('.login-form > h2')
+    }
+    getLoginEmail()
+    {
+        return cy.get('[data-qa="login-email"]')
+    }
+    getLoginPassword()
+    {
+        return cy.get('[data-qa="login-password"]')
+    }
+    getLoginButton()
+    {
+        return cy.get('[data-qa="login-button"]')
+    }
+    getIncorrectText()
+    {
+        return cy.get('.login-form > form > p')
+    }
+    getLogoutButton()
+    {
+        return cy.get('.shop-menu > .nav > :nth-child(4) > a')
+    }
+}
+class Contact_Us
+{
+    getContactUs()
+    {
+        return cy.get('.shop-menu > .nav > :nth-child(8) > a')
+    }
+    getContactUsText()
+    {
+        return cy.get('div.contact-form > .title')
+    }
+    getName()
+    {
+        return cy.get('[data-qa="name"]')
+    }
+    getEmail()
+    {
+        return cy.get('[data-qa="email"]')
+    }
+    getSubject()
+    {
+        return cy.get('[data-qa="subject"]')
+    }
+    getMessage()
+    {
+        return cy.get('[data-qa="message"]')
+    }
+    getChooseFile()
+    {
+        return cy.get(':nth-child(6) > .form-control')
+    }
+    getUploadFile()
+    {
+        return cy.fixture('Test-Logo.png').then((fileContent) => {
+            cy.get(':nth-child(6) > .form-control').selectFile({ fileContent, fileName: 'Test-Logo.png', mimeType: 'image/png' });
+          });
+    }
+    getSubmitButton()
+    {
+        return cy.get('[data-qa="submit-button"]')
+    }
+    getSuccessText()
+    {
+        return cy.get('.status')
+    }
+    getHomeButton()
+    {
+        return cy.get('#form-section > .btn')
+    }
+}
+export {Signup, Login, Contact_Us}
